@@ -99,6 +99,6 @@ TeXmacs 还有其它一些有用的功能，比如它可以作为一个前端，
 
 * 相关资料和链接
 
-- TeXmacs 官网
-- 王垠对 TeXmacs 的介绍。
-- 本文的网页版。
+- [[http://texmacs.org][TeXmacs 官网]]
+- [[http://www.yinwang.org/blog-cn/2012/09/18/texmacs][王垠对 TeXmacs 的介绍]]
+- [[https://github.com/zhcosin/introduction-to-texmacs][本文的网页版]]
