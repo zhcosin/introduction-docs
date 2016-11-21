@@ -93,7 +93,13 @@ TeXmacs 是一个法国人开发的 *免费* 的所见即所得的用来进行�
 
 ** TeXmacs 的其它有用的功能
    
-TeXmacs 还有其它一些有用的功能，比如它可以作为一个前端，对其它交互式软件的输出结果进行排版，如下是在其中调用 maxima (一个代数系统，类似于 Mathematics) 并对其结果进行排版。
+TeXmacs 还有其它一些有用的功能，比如它可以作为一个前端，对其它交互式软件的输出结果进行排版，也就是说，由其它软件提供内容(输出)，它负责排版。这里举个例子:
+
+maxima 是一个著名的代数系统（类似于 Mathematics)，下面是用它完成一些符号计算的输入和输出:
+
+[[./resource/pic/maxima-output.png]]
+
+而让 TeXmacs 作为它的前端之后，在 TeXmacs 中调用 maxima 的输入和输出是这样的:
 
 [[./resource/pic/texmacs-maxima.jpg]]
 
