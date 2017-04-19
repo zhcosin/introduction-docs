@@ -108,6 +108,7 @@ maxima 是一个著名的代数系统（类似于 Mathematics)，下面是用它
 - [[http://texmacs.org][TeXmacs 官网]]
 - [[http://www.yinwang.org/blog-cn/2012/09/18/texmacs][王垠对 TeXmacs 的介绍]]
 - [[https://github.com/zhcosin/introduction-to-texmacs][本文的网页版]]
+- [[http://x-wei.github.io/TeXmacs_intro.html][学术文章写作利器:TeXmacs介绍]]
 
 * FAQ(常见问题)
 
