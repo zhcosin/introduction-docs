@@ -1,0 +1,62 @@
+#+TITLE: 使用 Emacs 来编写 LaTeX 数学文档
+#+AUTHOR: zhcosin
+#+EMAIL: zhcosin@163.com
+#+DATE: 2017-06-02
+
+ *声明* 本文是介绍如何使用 =Emacs= 来写作 =LaTeX= 数学文档的文章，至于到底该使用哪个编辑器来写作 =LaTeX= 文档这样的问题，与本文无关，不在本文考虑范围。
+
+本文介绍使用 =Emacs= 配合相关插件来编写 =LaTeX= 文档（偏向数学文档），主要内容如下:
+ 1. =Emacs= 基础.
+    - =Emacs= 安装.
+    - 基本使用.
+    - 插件的安装方法.
+ 2. 与 =LaTeX= 相关插件的安装与配置.
+    - =auctex= 的安装及配置.
+    - =company-auctex= 的安装及配置.
+    - =cdlatex= 的安装及配置.
+有一个内容被略去，即 =LaTeX= 环境的安装，这一点不在本文介绍范围，请自行网上搜索。
+
+* =Emacs= 基础
+  
+=Emacs= 是一个通用的文本编辑器，其本质上是一个 =Emacs Lisp= 语言(简称 =elisp=)的解释器和编程平台， =elisp= 是一个 =lisp= 系的编程语言。通过用 =elisp= 编写实现各种功能的程序（插件），可以无限的扩展 =Emacs= 的功能。
+  
+** 安装 =Emacs=
+   
+[待完成]
+
+** =Emacs= 基本使用
+   
+无论如何， =Emacs= 自带的教程必须通读两遍，安装后打开编辑器，界面上就有这个教程的链接(=Emacs Tutorial=)，其中介绍了基本的使用。
+
+** =Emacs= 的配置
+   
+   - 关于 $HOME$ 路径.
+   - 配置的模块化.
+
+** 插件的安装方法
+   
+=Emacs= 有大量的插件包(称为 =package=)可供下载和安装，这些插件实现了各种各样的额外功能，每一个 =package= 都是一个独立的 =Emacs Lisp= 程序，而且通常还有独立的手册或者文档。按下 =M-x list-packages= 后会在一个名为 =*Packages*= 的缓冲区中列出所有的 =package= ，可以在此缓冲区中安装和删除 =package=.
+
+[[./pic/list-packages.png]]
+
+如果已经知道一个 =package= 的名字，则可以 =C-h P= 后输入这个名字，回车后会在一个名为 =*Help*= 的缓冲区中显示这个 =package= 的描述信息。
+
+安装 =package= 的方式有两种，一种是手工安装，一种是自动安装，当然这都指的是通过 =Emacs= 内置的 =package= 工具来安装，除此之外还可以手工下载后自行加载 =package= ，这是后话。
+
+手工安装一个 =package= 的方法是，在 =*Packages*= 缓冲区中，将光标移动到要安装的 =package= 上，按下 =i= 标记它，可以一次性标记多个 =package= ，标记完成后按下 =x= ， =Emacs= 就开始执行下载安装的动作，默认的安装目录是 =~/.emacs.d/elpa/=.
+
+默认情况下， =Emacs= 会从官方维护和插件仓库中下载插件，可以通过配置第三方插件仓库来改变这一点，这一点是有用的，因为默认的官方仓库都在国外，速度通常比较慢，网友"子龙山人"在国内利用阿里的服务器搭建了主要的官方仓库的国内镜像，详情见 [[https://elpa.emacs-china.org/]], 按上面的说明，我们把默认的插件仓库切换到 =emacs-china= 上的仓库镜像，把以下代码加到配置文件中。
+
+#+BEGIN_SRC 
+(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+#+END_SRC
+ 
+* 与 =LaTeX= 相关插件的安装及配置
+  
+** =auctex= 的安装及配置
+   
+** =company-auctex= 的安装及配置
+
+** =cdlatex= 的安装及配置
+   
