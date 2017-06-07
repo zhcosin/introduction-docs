@@ -21,7 +21,7 @@
 
 这里放一张我用 TeXmacs 编辑数学文档的演示。
 
-[[./resource/pic/input-math.gif]]
+[[./pic/input-math.gif]]
 
 * TeXmacs 介绍
 
@@ -34,7 +34,7 @@ TeXmacs 是一个法国人开发的 *免费* 的所见即所得的用来进行�
 
 这里是 TeXmacs 官方网站上的一个截图。
 
-[[./resource/pic/offcial-capiture.png]]
+[[./pic/offcial-capiture.png]]
 
 * 写作数学文档哪家强
   
@@ -97,11 +97,11 @@ TeXmacs 还有其它一些有用的功能，比如它可以作为一个前端，
 
 maxima 是一个著名的代数系统（类似于 Mathematics)，下面是用它完成一些符号计算的输入和输出:
 
-[[./resource/pic/maxima-output.png]]
+[[./pic/maxima-output.png]]
 
 而让 TeXmacs 作为它的前端之后，在 TeXmacs 中调用 maxima 的输入和输出是这样的:
 
-[[./resource/pic/texmacs-maxima.jpg]]
+[[./pic/texmacs-maxima.jpg]]
 
 * 相关资料和链接
 
