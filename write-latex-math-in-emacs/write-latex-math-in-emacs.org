@@ -5,7 +5,7 @@
 
  *声明* 本文是介绍如何使用 =Emacs= 来写作 =LaTeX= 数学文档的文章，至于到底该使用哪个编辑器来写作 =LaTeX= 文档这样的问题，与本文无关，不在本文考虑范围。
 
-本文介绍使用 =Emacs= 配合相关插件来编写 =LaTeX= 文档（偏向数学文档），主要内容如下:
+本文介绍使用 =Emacs= 配合相关插件来编写 =LaTeX= 文档（偏向数学文档），并作出一份相关的最小化配置，主要内容如下:
  1. =Emacs= 基础.
     - =Emacs= 安装.
     - 基本使用.
@@ -30,8 +30,19 @@
 
 ** =Emacs= 的配置
    
-   - 关于 $HOME$ 路径.
-   - 配置的模块化.
+ =Emacs= 可以通过其自带的编程语言 =Emacs Lisp= 进行无限制扩展，这些用于扩展 =Emacs= 功能的程序代码就称为配置，也正因为如此， =Emacs= 的配置可以简单到没有配置，也可以复杂到拥有几十万个代码文件，甚至比 =Emacs= 本身还更复杂的配置。
+   
+*** 关于 =HOME= 路径.
+
+=Emacs= 的配置文件必须放在指定路径才能被正确加载，这就是 =HOME= 路径，在类 =unix= 系统上就是用户的主目录，在 =windows= 上根据系统版本的不同而不同，在 =windows 2000/XP/2003= 上是 =C:\Documents and Settings\<username>\Application Data= ，在 =windows vista/7/2008/8/10= 上则是 =C:\Users\<username>\AppData\Roaming= ，其它版本系统请查阅 =Emacs= 官方文档的介绍。
+
+*** 两种配置方式
+    
+如果配置内容不多，可以只写一个文件在 =HOME= 路径下，这个文件必须被命名为 =.emacs= 注意前面的点号，在 =windows= 系统中则是 =_emacs= ，因为 =windows= 文件名不允许以点号开头。
+
+如果配置内容比较多，则可以在 =HOME= 下创建名为 =.emacs.d= 的目录(=windows= 下不能直接在图形界面中创建点号开头的文件夹，但可以在命令行创建，也可以通过启动一次 =Emacs= 的方式自动创建)，并在此目录下创建文件 =init.el= 作为配置的入口文件（名称必须是这个）。
+
+*** 配置的模块化.
 
 ** 插件的安装方法
    
@@ -56,7 +67,79 @@
   
 ** =auctex= 的安装及配置
    
+完整代码如下(lisp/init-auctex.el)
+#+BEGIN_SRC emacs-lisp
+;; 如果 auctex 未安装，则进行安装
+(install-package-if-not-found 'auctex)
+
+;; 加载 auctex.el 文件
+(load "auctex.el" nil t t)
+
+;; 如果需要预览 latex，则去掉下面这行前面的注释
+;;(load "preview-latex.el" nil t t)
+
+;; 如果是 windows 系统，则需要 MikTeX.
+(if (string-equal system-type "windows-nt")
+  (require 'tex-mik))
+  
+;; 默认情况下，编译的时候总是假定正在编译的 tex 文件为主文件，如果去掉下面这行的注释，
+;; 则在每次编译时都会询问哪一个 tex 文件是主文件。
+(setq-default TeX-master nil) ; Query for master file.
+
+;; 定义 LaTeX 模式在哪些环境下启用
+(mapc (lambda (mode)
+	(add-hook 'LaTeX-mode-hook mode))
+      (list 'LaTeX-math-mode
+            'turn-on-reftex))
+
+;; 作 LaTeX 相关设定
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (setq TeX-auto-untabify t     ; 在保存的时候自动去掉的 TAB 空白
+                  TeX-engine 'xetex       ; 默认使用 XeLaTeX 编译引擎
+                  TeX-show-compilation t) ; 显示编译输出窗口
+            (TeX-global-PDF-mode t)       ; 启用 PDF 模式
+            (setq TeX-save-query nil)
+            (imenu-add-menubar-index)
+            (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)))
+
+(provide 'init-auctex)
+#+END_SRC
+   
 ** =company-auctex= 的安装及配置
+   
+完整代码如下(lisp/init-company-auctex.el)
+#+BEGIN_SRC emacs-lisp
+;; 如果没有安装 company-auctex，则进行安装
+(install-package-if-not-found 'company-auctex)
+
+;; 加载 company-auctex 并初始化
+(use-package company-auctex
+  :config
+  (company-auctex-init))
+
+(provide 'init-company-auctex)
+#+END_SRC
 
 ** =cdlatex= 的安装及配置
    
+完整代码(lisp/init-cdlatex.el)
+#+BEGIN_SRC emacs-lisp
+;; 如果 cdlatex 没有安装，则进行安装
+(install-package-if-not-found 'cdlatex)
+
+;; 在 LaTeX 模式被启用时，启用 cdlatex
+(use-package cdlatex
+  :config
+  (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+  (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex))
+  
+;; 提供 init-cdlatex 特性.
+(provide 'init-cdlatex)
+#+END_SRC
+   
+
+* 相关链接
+
+ - [[http://book.emacs-china.org/][21 天掌握 Emacs]]
+ - [[http://emacser.com/auctex.htm][Emacs 中的 TeX 排版系统]]
