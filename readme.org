@@ -8,4 +8,5 @@
 这里是一些介绍性的文章，目录如下:
  - [[./introduction-texmacs/introduction-texmacs.org][使用 =TeXmacs= 来写作数学文档]]
  - [[./write-latex-math-in-emacs/write-latex-math-in-emacs.org][使用 =Emacs= 来写作 =LaTeX= 数学文档]]
+ - [[./introduction-to-mathdoc-writer/introduction-to-mathdoc-writer.org][数学文档写作工具介绍]]
 
