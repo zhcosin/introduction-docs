@@ -1,0 +1,35 @@
+
+#+TITLE: 使用 org-mode 写作数学书籍
+#+AUTHOR: zhcosin@163.com
+
+
+
+* 为什么要用 org-mode 
+
+好处:
+    - 同时获得书籍的 pdf 版本和 html 版本，分别用于离线阅读和在线阅读.
+    - org-mode 内容与格式分离的思想，一定程度上可以远离繁复的 LaTeX 排版命令.
+      
+要解决的问题:
+    1. 公式的输入和排版，包括行内公式和行间公式，行间公式还分单行公式和多行公式.
+    2. 标签与引用，即 LaTeX 的 label 与 ref.
+    3. 自动编号，包括定理、公式、图表.
+    4. 图片插入与引用，图片的格式.
+    5. 参考文献的引用.
+    6. 脚注的使用.
+    7. 多文档，是否还要像 latex 一样分割为多文档工程.
+    8. auctex 和 cdlatex 的使用.
+       
+* 公式的输入
+
+org-mode 支持在文件中嵌入 LaTeX 代码，可以直接使用类似于 TeX 的语法来输入数学符号、整个公式和整个 LaTeX 环境，例如:
+
+角度用希腊字母 \alpha, \beta 和 \gamma 来表示. 太阳的质量是 M_sun = 1.989 x 10^30 kg. 太阳的半径是 R_sun = 6.96 x 10^8 m. 如果 $a^2=b$ 且 $b=2$ ，那么有 $a=+\sqrt{2}$ 或者 $a=-\sqrt{2}$.
+
+\begin{equation}
+x=\sqrt{b}
+\end{equation}
+
+* 相关文献
+
+1. 《The compact Org-mode Guide》
