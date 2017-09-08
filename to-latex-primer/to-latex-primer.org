@@ -1,4 +1,4 @@
-#+TITLE: 写给初学 LaTeX 的人
+#+TITLE: 写给 LaTeX 初学者
 #+AUTHOR: zhcosin@163.com
 
 本文的最新文档在这里 [[https://github.com/zhcosin/introduction-docs/blob/master/to-latex-primer/to-latex-primer.org][这里]]
