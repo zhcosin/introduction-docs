@@ -1,6 +1,7 @@
-#+TITLE: LaTeX 学习感想
+#+TITLE: 写给初学 LaTeX 的人
 #+AUTHOR: zhcosin@163.com
 
+本文的最新文档在这里 [[https://github.com/zhcosin/introduction-docs/blob/master/to-latex-primer/to-latex-primer.org][这里]]
 
 用 LaTeX 有一年多了，我是一名数学爱好者，平时的主要精力主要用在数学上，所以对 LaTeX 以使用为主，并没有什么深入研究，我的 LaTeX 知识也就基本限于写作数学文档和书籍所需要用到的知识而已，所以本文标题中的“学习感想”四个字，其实不太准确，应该是“使用感想”才对。
 
