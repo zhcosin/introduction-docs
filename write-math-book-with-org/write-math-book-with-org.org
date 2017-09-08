@@ -13,12 +13,13 @@
 要解决的问题:
     1. 公式的输入和排版，包括行内公式和行间公式，行间公式还分单行公式和多行公式.
     2. 标签与引用，即 LaTeX 的 label 与 ref.
-    3. 自动编号，包括定理、公式、图表.
-    4. 图片插入与引用，图片的格式.
-    5. 参考文献的引用.
-    6. 脚注的使用.
-    7. 多文档，是否还要像 latex 一样分割为多文档工程.
-    8. auctex 和 cdlatex 的使用.
+    3. 定理、公式环境.
+    4. 自动编号，包括定理、公式、图表.
+    5. 图片插入与引用，图片的格式.
+    6. 参考文献的引用.
+    7. 脚注的使用.
+    8. 多文档，是否还要像 latex 一样分割为多文档工程.
+    9. auctex 和 cdlatex 的使用.
        
 * 公式的输入
 
@@ -29,6 +30,15 @@ org-mode 支持在文件中嵌入 LaTeX 代码，可以直接使用类似于 TeX
 \begin{equation}
 x=\sqrt{b}
 \end{equation}
+
+#+begin_theorem
+当 \( n>2 \) 时，方程 \(a^n+b^n=c^n\) 没有非零整数解.
+#+end_theorem
+
+#+begin_proof
+I have a truly /marvelous/ proof of this proposition that this margin is too
+narrow to contain.
+#+end_proof
 
 * 相关文献
 
