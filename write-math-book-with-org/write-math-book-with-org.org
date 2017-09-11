@@ -1,6 +1,8 @@
 
 #+TITLE: 使用 org-mode 写作数学书籍
 #+AUTHOR: zhcosin@163.com
+#+OPTIONS: ^:nil
+#+LANGUAGE: zh-CN
 
 
 
@@ -21,25 +23,53 @@
     8. 多文档，是否还要像 latex 一样分割为多文档工程.
     9. auctex 和 cdlatex 的使用.
        
-* 公式的输入
+* 插入 =LaTeX= 片段
 
-org-mode 支持在文件中嵌入 LaTeX 代码，可以直接使用类似于 TeX 的语法来输入数学符号、整个公式和整个 LaTeX 环境，例如:
+=org-mode= 可以包含 =LaTeX= 片断，并且支持使用不同的后端来处理这些 =LaTeX= 片段。在导出为 =LaTeX= 文件时，这些片段直接复制到对应位置，在导出为 =HTML= 时， =Org= 可以使用 [[https://www.mathjax.org/][MathJax]] 来处理数学公式，也可以将数学公式转换为图片（这也用于在 =org-mode= 中预览）。
 
-角度用希腊字母 \alpha, \beta 和 \gamma 来表示. 太阳的质量是 M_sun = 1.989 x 10^30 kg. 太阳的半径是 R_sun = 6.96 x 10^8 m. 如果 $a^2=b$ 且 $b=2$ ，那么有 $a=+\sqrt{2}$ 或者 $a=-\sqrt{2}$.
+=LaTeX= 片段无需任何特殊标记，符合下面条件的文字片段将被识别为 =LaTeX= 片段:
+  - 任何类型的 =LaTeX= 环境，唯一要求是 \begin 必须位于新行的行首，或者跟在行首的若干空白字符后面.
+  - 被 =LaTeX= 数学公式界定符所括起来的文字片段，为了避免与货币符号冲突，只有在两个美元符所括起来的文字不超过两行时，美元符之间的内容才会被识别为数学公式，因此为了避免歧义，推荐使用 '\( \)' 来作为行内公式的定界符。
+    
+例如
+#+begin_src
+ \begin{equation}
+     x=\sqrt{b}
+ \end{equation}
+     
+ 如果 $a^2=b$ 并且 \( b=2 \), 那么或者 $$ a=+\sqrt{2} $$ 或者 \[ a=-\sqrt{2} \].
+     
+\begin{eqnarray}
+x & = & y + z \\
+& = & z + t
+\end{eqnarray}
+#+end_src
 
-\begin{equation}
-x=\sqrt{b}
-\end{equation}
+=LaTeX= 处理器可以通过变量 =org-export-with-latex= 来设置，默认值为 =t= ，这意思是对于 =HTML= 来说处理器是 =MathJax= ，对于纯文本导出和 =LaTeX= 导出则没有处理器。也可以在每个文件中单独设置这个变量，只要加入下面这些行中的其中一个就可以了:
 
-#+begin_theorem
-当 \( n>2 \) 时，方程 \(a^n+b^n=c^n\) 没有非零整数解.
-#+end_theorem
+#+begin_src
+ #+OPTIONS: tex:t            自动处理(MathJax)
+ #+OPTIONS: tex:nil          对 LaTeX 片段不做任何处理
+ #+OPTIONS: tex:verbatim     原样导出
+#+end_src
 
-#+begin_proof
-I have a truly /marvelous/ proof of this proposition that this margin is too
-narrow to contain.
-#+end_proof
+* 导出为 =HTML= 时的公式格式化
+
+=LaTeX= 片段在导出为 =HTML= 页面时有两种不同的显示方式，默认行为是使用 [[https://www.mathjax.org/][MathJax]] 来处理，这种方式并非 =Org= 所特有， =MathJax= 的显示选项可以通过变量 =org-html-mathjax-options= 来设置，或者在文件中进行单独设置，例如，使用下面的设置
+\begin_src
+#+HTML_MATHJAX: align: left indent: 5em tagside: left font: Neo-Euler
+\end_src
+方程的编号将显示在页面左边缘，并且方程距页面左边界 5M.
+
+查看变量 =org-html-mathjax-options= 的说明文档可以找到更多支持的变量， =MathJax= 模板可以通过 =org-html-mathjax-template= 来配置。
+
+如果你喜欢，你也可以将 =LaTeX= 片段转化为较小的图片来插入到浏览器页面中，在 =MathJax= 出现之前，这正是 =Org= 处理 =LaTeX= 片段的默认做法。这种方式要求你的系统中安装有 =dvipng= 程序， =dvisvgm= 或者 =imagemagick= 套件。可以通过下面的方式来使用这种方式:
+#+begin_src
+ #+OPTIONS: tex:dvipng
+ #+OPTIONS: tex:dvisvgm
+ #+OPTIONS: tex:imagemagick
+#+end_src
 
 * 相关文献
 
-1. 《The compact Org-mode Guide》
+1. [[http://orgmode.org/org.html#Top][The Org Manual]]
