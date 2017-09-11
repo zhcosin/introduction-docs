@@ -1,2 +1,6 @@
 *.html
 *~
+*.bbl
+*.blg
+*.tex
+*.pdf
