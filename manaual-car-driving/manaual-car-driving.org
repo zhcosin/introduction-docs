@@ -5,6 +5,15 @@
 #+OPTIONS:   ^:{} \n:t 
 #+LANGUAGE: zh-CN
 
+* 引言
+
+文章信息:
+
+ - 网页版 [[https://zhcosin.github.io/car/manaual-car-driving.html][手动档驾驶技术基础]] 
+ - pdf 文件 [[https://github.com/zhcosin/introduction-docs/blob/master/manaual-car-driving/manaual-car-driving.pdf][点此进入下载页面]]
+ 
+除此以外，在其它平台(如知乎，QQ群等)的发布将不一定进行维护.
+
 手动档开了一年，根据自己的知识和经验，对手动档驾驶所需要用到的一些技术作一些总结，这些技术有些是我会的，有些是我不会只知道是怎么回事的，例如无离合换档和跟趾，都按照我的理解记录下来，以后随着自己经验的积累，再进行修改。
 
  本文以我的车八代思域五速手动作为参考车型，对前置前驱的自然吸气手动档车型也一般性适用.
