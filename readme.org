@@ -11,4 +11,5 @@
  - [[./introduction-to-mathdoc-writer/introduction-to-mathdoc-writer.org][数学文档写作工具介绍]]
  - [[./to-latex-primer/to-latex-primer.org][写给 =LaTeX= 初学者]]
  - [[./write-math-book-with-org/write-math-book-with-org.org][使用 =org-mode= 写作数学书籍]]
+ - [[file:manaual-car-driving/manaual-car-driving.org][手动档驾驶技术基础]]
 
