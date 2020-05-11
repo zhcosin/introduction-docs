@@ -403,7 +403,9 @@ r/min，同样的，在时速40km/h的时候发动机转速一定是接近2700�
 如果您觉得本文对您小有帮助，不妨小小的捐助一下，:-)
 
 #+ATTR_LATEX: :width 0.4\linewidth
+#+ATTR_HTML: :width 300
 [[./resource/weixin-cash-code.png]]
 
 #+ATTR_LATEX: :width 0.4\linewidth
+#+ATTR_HTML: :width 300
 [[./resource/ali-cash-code.jpg]]
